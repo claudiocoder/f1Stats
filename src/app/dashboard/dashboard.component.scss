@@ -3,7 +3,6 @@
   background-color: white;
 
   .card {
-    font-family: "Roboto", sans-serif;
     font-size: 20px;
     margin: 20px 10px;
     padding: 10px;
@@ -11,6 +10,7 @@
     border-radius: 8px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     cursor: pointer;
+    border-bottom: 5px solid #e70000;
   }
 
   .racename {
@@ -29,7 +29,7 @@
   }
 
   .date {
-    font-size: 14px;
+    font-size: 18px;
     margin-bottom: 10px;
   }
 }

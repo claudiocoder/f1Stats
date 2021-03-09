@@ -1,0 +1,32 @@
+.positions-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40%;
+  padding: 30px;
+  margin-bottom: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.13);
+  border-radius: 8px;
+  font-weight: bold;
+
+  .position {
+    width: 20%;
+    margin-right: 16px;
+    font-size: 36px;
+  }
+
+  .name {
+    width: 40%;
+    font-size: 24px;
+  }
+
+  .time {
+    width: 40%;
+  }
+
+  .points {
+    font-size: 24px;
+    text-align: right;
+    color: #e70000;
+  }
+}

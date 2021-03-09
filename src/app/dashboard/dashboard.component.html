@@ -7,7 +7,7 @@
   >
     <ng-container *ngFor="let circuit of circuits; index as i">
       <ng-template swiperSlide>
-        <div class="card">
+        <div class="card" (click)="redirect(circuit.round)">
           <div class="racename">{{ circuit.raceName }}</div>
           <div class="country">{{ circuit.Circuit.Location.country }}</div>
           <div class="locaty">{{ circuit.Circuit.Location.locality }}</div>
@@ -17,3 +17,4 @@
     </ng-container>
   </swiper>
 </div>
+<router-outlet></router-outlet>

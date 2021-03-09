@@ -10,4 +10,10 @@ export class CircuitsService {
   getCircuits() {
     return this.http.get(`http://ergast.com/api/f1/2021.json`);
   }
+
+  getResults(round: string) {
+    return this.http.get(
+      `https://ergast.com/api/f1/2020/${round}/results.json`
+    );
+  }
 }
