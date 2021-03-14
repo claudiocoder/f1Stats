@@ -12,6 +12,9 @@ import { CircuitsService } from '../shared/services/circuits.service';
 })
 export class CircuitsComponent implements OnInit {
   results$: Observable<any> | undefined;
+  weather$: Observable<any> | undefined;
+  icon$: Observable<any> | undefined;
+  observables: Observable<any> | undefined;
   location: any;
 
   constructor(
@@ -30,11 +33,12 @@ export class CircuitsComponent implements OnInit {
         ),
         switchMap((res: any) => {
           this.location = res.MRData.RaceTable.Races[0].Circuit.Location;
-          return this.resultsServices.getWeather(
+          this.weather$ = this.resultsServices.getWeather(
             this.location.lat,
             this.location.long
           );
-        })
+          return this.weather$;
+        }),
       )
       .subscribe(
         (res) => {},

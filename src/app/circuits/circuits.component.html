@@ -1,14 +1,35 @@
-<div *ngIf="results$ | async as results">
-  <div *ngFor="let item of results.MRData.RaceTable.Races[0].Results">
-    <div class="positions-container">
-      <div class="position">{{ item.position }}</div>
-      <div class="name">
-        {{ item.Driver.givenName }} {{ item.Driver.familyName }}
+<div *ngIf="results$ | async as results" class="main-circuits-container">
+  <div class="main-poitions">
+    <div *ngFor="let item of results.MRData.RaceTable.Races[0].Results">
+      <div class="positions-container">
+        <div class="position">{{ item.position }}</div>
+        <div class="name">
+          {{ item.Driver.givenName }} {{ item.Driver.familyName }}
+        </div>
+        <div class="time">
+          {{ item.Time?.time || item.status }}
+        </div>
+        <div class="points">{{ item.points }}</div>
       </div>
-      <div class="time">
-        {{ item.Time?.time || item.status }}
-      </div>
-      <div class="points">{{ item.points }}</div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="{
+      weather: weather$ | async
+    } as data"
+  >
+    <div class="container-weather" *ngIf="data.weather">
+      <img
+        src="{{
+          'http://openweathermap.org/img/wn/' +
+            data.weather.weather[0].icon +
+            '@2x.png'
+        }}"
+        alt="weather"
+      />
+      <div class="container-temperature">Temperature: {{ data.weather.main.temp | temperatureConverter :'K'}} C°</div>
+      <div class="container-temperature">Wind: {{ data.weather.wind.speed }} meter/sec</div>
     </div>
   </div>
 </div>
