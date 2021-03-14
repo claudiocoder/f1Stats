@@ -4,12 +4,10 @@ import { CommonModule } from '@angular/common';
 import { CircuitsRoutingModule } from './circuits-routing.module';
 import { CircuitsComponent } from './circuits.component';
 
+import { TemperatureConverterPipe } from '../shared/pipes/temp.pipe';
 
 @NgModule({
-  declarations: [CircuitsComponent],
-  imports: [
-    CommonModule,
-    CircuitsRoutingModule
-  ]
+  declarations: [CircuitsComponent, TemperatureConverterPipe],
+  imports: [CommonModule, CircuitsRoutingModule],
 })
-export class CircuitsModule { }
+export class CircuitsModule {}
