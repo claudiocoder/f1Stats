@@ -1,0 +1,17 @@
+.container-header {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  position: sticky;
+  top: 0px;
+  align-items: center;
+  padding: 10px;
+  background-color: #e70000;
+  z-index: 2;
+  margin: 0px;
+  .logo {
+    color: white;
+    font-size: 36px;
+    transition: 2s;
+  }
+}
