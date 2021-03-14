@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { mergeMap, switchMap } from 'rxjs/operators';
 
 import { CircuitsService } from '../shared/services/circuits.service';
 
@@ -12,15 +12,35 @@ import { CircuitsService } from '../shared/services/circuits.service';
 })
 export class CircuitsComponent implements OnInit {
   results$: Observable<any> | undefined;
+  location: any;
 
   constructor(
     private route: ActivatedRoute,
     private resultsServices: CircuitsService
-  ) {}
+  ) {
+    this.location = {};
+  }
 
   ngOnInit(): void {
-    this.results$ = this.route.params.pipe(
-      switchMap((params: Params) => this.resultsServices.getResults(params.id))
-    );
+    this.route.params
+      .pipe(
+        switchMap(
+          (params: Params) =>
+            (this.results$ = this.resultsServices.getResults(params.id))
+        ),
+        switchMap((res: any) => {
+          this.location = res.MRData.RaceTable.Races[0].Circuit.Location;
+          return this.resultsServices.getWeather(
+            this.location.lat,
+            this.location.long
+          );
+        })
+      )
+      .subscribe(
+        (res) => {},
+        (error) => {
+          this.location = {};
+        }
+      );
   }
 }

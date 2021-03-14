@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CircuitsService } from '../shared/services/circuits.service';
 import { Router } from '@angular/router';
+import { forkJoin, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
