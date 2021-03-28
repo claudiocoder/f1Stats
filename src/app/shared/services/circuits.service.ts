@@ -17,7 +17,7 @@ export class CircuitsService {
 
   getResults(round: string) {
     return this.http
-      .get(`https://ergast.com/api/f1/2020/${round}/results.json`)
+      .get(`https://ergast.com/api/f1/2021/${round}/results.json`)
       .pipe(catchError(this.handleError));
   }
 

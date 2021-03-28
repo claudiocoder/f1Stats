@@ -24,8 +24,7 @@ libpeerconnection.log/
 npm-debug.log
 testem.log
 typings/
-src/environments/environment.prod.ts
-src/environments/environment.ts
+
 
 # e2e
 e2e/*.js
@@ -35,3 +34,5 @@ e2e/*.map
 .DS_Store/
 
 # End of https://www.toptal.com/developers/gitignore/api/angular
+environment.prod.ts
+environment.ts
