@@ -11,7 +11,7 @@ export class CircuitsService {
 
   getCircuits() {
     return this.http
-      .get(`http://ergast.com/api/f1/2020.json`)
+      .get(`http://ergast.com/api/f1/2021.json`)
       .pipe(catchError(this.handleError));
   }
 
